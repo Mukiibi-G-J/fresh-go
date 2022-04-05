@@ -6,5 +6,10 @@ module.exports = {
   theme: {
     extend: {},
   },
+  // theme: {
+  //   screens: {
+  //     xs: "640px",
+  //   },
+  // },
   plugins: [],
 };
