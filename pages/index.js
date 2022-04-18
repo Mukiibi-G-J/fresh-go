@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Header from "../components/Header";
 import Feed from "../components/Feed";
+import TopCategory from "../components/TopCategory";
+import Category from "../components/Categories";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
 
       <main>
         <Feed />
+        <TopCategory />
+        <Category />
       </main>
 
       <footer></footer>
