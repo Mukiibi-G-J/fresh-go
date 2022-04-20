@@ -5,7 +5,8 @@ import Feed from "../components/Feed";
 import TopCategory from "../components/TopCategory";
 import Category from "../components/Categories";
 
-export default function Home() {
+export default function Home({ products }) {
+  // console.log(products);
   return (
     <div>
       <Head>
@@ -18,10 +19,22 @@ export default function Home() {
       <main>
         <Feed />
         <TopCategory />
-        <Category />
+        
+        <Category products={products} />
       </main>
 
       <footer></footer>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch("http://127.0.0.1:8000/api/");
+  const products = await res.json();
+
+  return {
+    props: {
+      products,
+    },
+  };
 }

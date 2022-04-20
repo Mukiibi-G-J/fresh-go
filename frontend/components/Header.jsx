@@ -7,8 +7,13 @@ import {
   ShoppingBagIcon,
   UserIcon,
 } from "@heroicons/react/outline";
+import { useStateValue } from "../context/StateProvider";
+import Link from "next/link";
 
 function Header() {
+  // const[state, dispatch]=useStateValue()
+  const [{ basket }, dispatch] = useStateValue();
+  console.log(basket);
   return (
     <nav className="bg-white  ">
       <div className="bg-[#06623B] hidden px-10 py-4 items-center md:flex justify-between">
@@ -73,16 +78,20 @@ function Header() {
               <span className="text-sm  text-gray-700 ">Chart</span>
             </div>
             {/* <----end--responsive--> */}
+            <Link href="/Chart">
+              <div className="bg-[#A8C73A] h-[45px] rounded-xl p-1 hidden  sm:flex">
+                <ShoppingBagIcon className="h-8 text-[#06623B]" />
+                <div className="flex flex-col relative">
+                  <span className="text-sm text-[#06623B]">My chart</span>
+                  <span className="text-white text-sm">$000</span>
+                  <span className="absolute w-3 h-4 pl-1 pr-1  bg-[#FED507] rounded-full top-[10px] right-[60px]  text-[12px] text-white">
+                    {basket.length}
+                  </span>
+                </div>
 
-            <div className="bg-[#A8C73A] h-[45px] rounded-xl p-1 hidden  sm:flex">
-              <ShoppingBagIcon className="h-8 text-[#06623B]" />
-              <div className="flex flex-col">
-                <span className="text-sm text-[#06623B]">My chart</span>
-                <span className="text-white text-sm">$000</span>
+                {/* <ChevronDownIcon className="text-white h-4" /> */}
               </div>
-
-              <ChevronDownIcon className="text-white h-4" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

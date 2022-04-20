@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'grocery',
     'rest_framework',
     'rest_framework_simplejwt',
-    'mptt'
+    'mptt',
+    'corsheaders'
     
 
 ]
@@ -142,3 +143,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL ="/media/"
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+
+CORS_ALLOWED_ORIGINS = [
+   
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
